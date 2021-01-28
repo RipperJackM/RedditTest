@@ -1,12 +1,26 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.20"
+    ext {
+        kotlin_version = "1.4.20"
+        nav_version = "2.3.1"
+        persistence_room_version = "1.1.1"
+        lifecycle_compiler_version = "1.1.1"
+        lifecycle_extensions_version = "2.2.0"
+        koin_version = "2.2.0-beta-1"
+        retrofit_version = "2.6.2"
+        room_runtime_version = "2.3.0-alpha03"
+        moshi_version = "1.10.0"
+        argon_version = "1.1.0"
+    }
+
+
     repositories {
         google()
         jcenter()
     }
+
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath 'com.android.tools.build:gradle:4.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
