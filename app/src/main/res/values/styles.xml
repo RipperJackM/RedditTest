@@ -2,19 +2,21 @@
 <resources>
 
     <style name="TextStyleDescription">
-        <item name="fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/black_50</item>
         <item name="android:textSize">12sp</item>
     </style>
 
     <style name="TextStyleMedium">
-        <item name="fontFamily">@font/roboto</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/black_80</item>
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="TextStyleLarge">
+        <item name="android:textColor">@color/black_80</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="TextStyleHeader">
-        <item name="fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>

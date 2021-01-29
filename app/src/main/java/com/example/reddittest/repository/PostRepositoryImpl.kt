@@ -34,7 +34,7 @@ class PostRepositoryImpl : PostRepository, KoinComponent {
                 with(item.data) {
                     listOfModels.add(PostModel(
                             postId = 0L,
-                            authorName = this?.author_fullname,
+                            authorName = this?.author,
                             title = this?.title,
                             body = this?.selftext,
                             date = this?.created,
@@ -42,6 +42,7 @@ class PostRepositoryImpl : PostRepository, KoinComponent {
                             commentsCount = this?.num_comments))
                 }
             }
+            clearTable()
             insertPosts(listOfModels)
             return true
         }

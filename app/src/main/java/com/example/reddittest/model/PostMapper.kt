@@ -9,6 +9,8 @@ class PostMapper : Mapper<PostEntity, PostModel> {
         PostEntity(
             this.postId,
             this.authorName,
+            this.title,
+            this.body,
             this.date,
             this.imageUrl,
             this.commentsCount
@@ -19,6 +21,8 @@ class PostMapper : Mapper<PostEntity, PostModel> {
         PostModel(
             this.postId,
             this.authorName,
+            this.title,
+            this.body,
             this.date,
             this.imageUrl,
             this.commentsCount

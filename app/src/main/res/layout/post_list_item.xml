@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -11,68 +12,89 @@
         android:padding="20dp">
 
         <TextView
-            style="@style/TextStyleHeader"
-            android:id="@+id/authorName"
+            android:id="@+id/postNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Terenas Menethil" />
+            tools:text="1"/>
 
         <TextView
-            style="@style/TextStyleMedium"
-            android:id="@+id/postBodyText"
+            android:id="@+id/authorName"
+            style="@style/TextStyleDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/authorName"
-            app:layout_constraintBottom_toTopOf="@id/postCreationDate"
-            tools:text="My son. The day you were born, the very forests of Lordaeron whispered the name, Arthas. My child. I watched you with pride, as you grew into a weapon. Of rightousness. Remember, our line has always ruled with wisdom, and strength. And I know that you will show restraint, when exercising your great power. But the truest victory, my son, is stirring the hearts of your people. I tell you this, for when my days have come to end. You, shall be king." />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/postThumbnailImage"
+            app:layout_constraintBottom_toBottomOf="@id/postThumbnailImage"
+            tools:text="Author name: Terenas Menethil" />
 
         <ImageView
             android:id="@+id/postThumbnailImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/postBodyText"/>
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/authorName"
+            tools:src="@drawable/test_image"/>
 
         <TextView
-            style="@style/TextStyleDescription"
-            android:id="@+id/postCreationDate"
+            android:id="@+id/postTitle"
+            style="@style/TextStyleMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:maxLines="3"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/postThumbnailImage"
+            tools:text="For my son" />
+
+        <TextView
+            android:id="@+id/postBodyText"
+            style="@style/TextStyleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/postCreationDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/postTitle"
+            tools:text="My son. The day you were born, the very forests of Lordaeron whispered the name, Arthas. My child. I watched you with pride, as you grew into a weapon. Of rightousness. Remember, our line has always ruled with wisdom, and strength. And I know that you will show restraint, when exercising your great power. But the truest victory, my son, is stirring the hearts of your people. I tell you this, for when my days have come to end. You, shall be king." />
+
+        <TextView
+            android:id="@+id/postCreationDate"
+            style="@style/TextStyleDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="20 hours ago"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="20 hours ago" />
 
         <ImageView
             android:id="@+id/postDataImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/postCreationDate"
-            app:layout_constraintStart_toStartOf="@id/postCreationDate"
-            android:src="@drawable/ic_clock"/>
+            android:src="@drawable/ic_clock"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toStartOf="@id/postCreationDate"
+            app:layout_constraintTop_toTopOf="@id/postCreationDate" />
 
         <TextView
-            style="@style/TextStyleDescription"
             android:id="@+id/postCommentCount"
+            style="@style/TextStyleDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             app:layout_constraintStart_toEndOf="@id/commentCountImage"
             app:layout_constraintTop_toTopOf="@id/commentCountImage"
-            tools:text="27 comments"/>
+            tools:text="27 comments" />
 
         <ImageView
             android:id="@+id/commentCountImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_comment"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/postCreationDate"
-            android:src="@drawable/ic_comment"/>
+            app:layout_constraintTop_toTopOf="@id/postCreationDate" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
