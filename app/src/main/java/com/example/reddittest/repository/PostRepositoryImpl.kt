@@ -24,5 +24,5 @@ class PostRepositoryImpl: PostRepository, KoinComponent {
     override fun clearTable() = postDao.clearTable()
 
     override suspend fun getPostsFromNetwork(): ResponseModel = retrofitService.getAllPostsFromNetwork()
-    
+
 }
