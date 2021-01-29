@@ -14,5 +14,8 @@ interface PostDao {
     fun getAllPosts(): LiveData<List<PostEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(posts: List<PostModel>)
+    fun insert(posts: List<PostEntity>)
+
+    @Query(value = "DELETE FROM ${PostEntity.TABLE_NAME}")
+    fun clearTable()
 }

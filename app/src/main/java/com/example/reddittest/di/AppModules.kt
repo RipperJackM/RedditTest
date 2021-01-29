@@ -3,6 +3,9 @@ package com.example.reddittest.di
 import androidx.room.Room
 import com.example.reddittest.ApplicationContext.Companion.appContext
 import com.example.reddittest.db.RedditDb
+import com.example.reddittest.model.PostMapper
+import com.example.reddittest.repository.PostRepository
+import com.example.reddittest.repository.PostRepositoryImpl
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -43,4 +46,10 @@ val applicationModule = module {
             .addConverterFactory(MoshiConverterFactory.create(get<Moshi>()))
             .build()
     }
+
+    // Repository
+    single<PostRepository> { PostRepositoryImpl() }
+
+    // Mapper
+    single { PostMapper() }
 }
