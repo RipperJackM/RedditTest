@@ -6,11 +6,14 @@ import com.example.reddittest.db.PostEntity.Companion.TABLE_NAME
 
 @Entity(tableName = TABLE_NAME)
 data class PostEntity(
-    @PrimaryKey(autoGenerate = true) var postId: Long = 0L,
-    val authorName: String,
-    val date: Long,
-    val imageUrl: String,
-    val commentsCount: Long,
+    @PrimaryKey(autoGenerate = true)
+    var postId: Long = 0L,
+    val authorName: String?,
+    val title: String?,
+    val body: String?,
+    val date: Double?,
+    val imageUrl: String? = "",
+    val commentsCount: Int?
 ) {
 
     companion object {

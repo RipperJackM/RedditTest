@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.reddittest.databinding.FragmentPostListBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class PostListFragment: Fragment() {
 
@@ -35,12 +39,21 @@ class PostListFragment: Fragment() {
         initializeListeners()
     }
 
-    private fun initializeListeners() = Unit
+    private fun initializeResource() {
+        viewModel = ViewModelProvider(requireActivity()).get(PostListViewModel::class.java)
+    }
 
-    private fun initializeObservers() = Unit
+    private fun initializeObservers() {
+        binding.updateListBtn.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
+                viewModel.getPostsFromNetwork()
+            }
+        }
+    }
 
-    private fun initializeResource() = Unit
+    private fun initializeListeners() {
 
+    }
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

@@ -11,11 +11,11 @@ interface PostRepository {
     fun getAllPosts(): LiveData<List<PostModel>>
 
     @WorkerThread
-    fun insertPosts(list: List<PostModel>)
+    suspend fun insertPosts(list: List<PostModel>)
 
     @WorkerThread
     fun clearTable()
 
     @WorkerThread
-    suspend fun getPostsFromNetwork(): ResponseModel
+    suspend fun getPostsFromNetwork(): Boolean
 }
