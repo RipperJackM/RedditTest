@@ -3,8 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black_10"
-    android:padding="20dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black_10">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/postListRecycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/updateListBtn"/>
 
     <Button
         android:id="@+id/updateListBtn"
@@ -15,13 +25,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/postListRecycler"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/updateListBtn"/>
-
+        <com.example.reddittest.presentation.LoadingView
+            android:id="@+id/postListFragmentLoadingView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

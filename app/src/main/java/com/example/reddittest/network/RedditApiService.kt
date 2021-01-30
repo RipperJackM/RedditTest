@@ -6,6 +6,7 @@ import retrofit2.http.GET
 
 interface RedditApiService {
 
-    @GET("/top.json")
+    // add subreddit because if use /top only server return empty self_text field
+    @GET("r/learnpython/top.json?limit=100")
     suspend fun getAllPostsFromNetwork(): ResponseModel
 }

@@ -5,7 +5,7 @@ data class PostModel(
     val authorName: String?,
     val title: String?,
     val body: String?,
-    val date: Double?,
+    val date: Long?,
     val imageUrl: String? = "",
     val commentsCount: Int?
 )

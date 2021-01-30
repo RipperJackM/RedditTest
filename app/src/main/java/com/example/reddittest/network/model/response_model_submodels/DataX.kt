@@ -26,7 +26,7 @@ data class DataX(
     val clicked: Boolean?,
     val content_categories: Any?,
     val contest_mode: Boolean?,
-    val created: Double?,
+    val created: Long?,
     val created_utc: Double?,
     val discussion_type: Any?,
     val distinguished: Any?,
