@@ -5,15 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.example.reddittest.R
 import com.example.reddittest.databinding.PostListItemBinding
 import com.example.reddittest.model.PostModel
-import com.example.reddittest.repository.DateUtil
+import com.example.reddittest.utils.DateUtil
 import com.example.reddittest.utils.AutoUpdatableAdapter
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
 
 class PostListAdapter(private val onImageClickListener: (url: String?) -> Unit) : RecyclerView.Adapter<PostListAdapter.ViewHolder>(), AutoUpdatableAdapter {

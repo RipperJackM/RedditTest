@@ -12,7 +12,8 @@ class PostListViewModel: ViewModel(), KoinComponent {
 
     private val repository: PostRepository by inject()
 
-    val networkResult = MutableLiveData<Boolean>()
+    private val networkResult = MutableLiveData<Boolean>()
+    val _networkResult = networkResult
 
     fun getAllPosts(): LiveData<List<PostModel>> = repository.getAllPosts()
 

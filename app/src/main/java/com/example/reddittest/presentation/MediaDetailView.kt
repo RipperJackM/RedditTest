@@ -18,6 +18,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.reddittest.databinding.MediaDetailViewBinding
 import kotlinx.android.synthetic.main.media_detail_view.view.*
 import kotlinx.coroutines.Dispatchers
@@ -26,6 +27,11 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
+
+
+/* don't worry about all this shit. it's just my mistake when i decide
+    to use view instead of activity to manage images
+     */
 
 class MediaDetailView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -39,12 +45,17 @@ class MediaDetailView @JvmOverloads constructor(
     private var updateBtn: Button? = null
 
     init {
-        binding.mediaDetailContainer.setOnClickListener(OnClickListener { return@OnClickListener })
-        binding.saveBtn.setOnClickListener(SaveImageClickListener())
+        binding.mediaDetailContainer.setOnClickListener {
+            binding.mediaDetailContainer.visibility = View.GONE
+            updateBtn?.visibility = View.VISIBLE
+        }
+
         binding.closeBtn.setOnClickListener {
             binding.mediaDetailContainer.visibility = View.GONE
             updateBtn?.visibility = View.VISIBLE
         }
+
+        binding.saveBtn.setOnClickListener(SaveImageClickListener())
     }
 
     inner class SaveImageClickListener : OnClickListener {
@@ -121,7 +132,7 @@ class MediaDetailView @JvmOverloads constructor(
             mediaScanIntent.data = contentUri
             context.sendBroadcast(mediaScanIntent)
             GlobalScope.launch(Dispatchers.Main) {
-            Toast.makeText(context, "Image was saved", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Image was saved", Toast.LENGTH_SHORT).show()
             }
         }
     }

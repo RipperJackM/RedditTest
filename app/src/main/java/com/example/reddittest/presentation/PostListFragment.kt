@@ -61,7 +61,7 @@ class PostListFragment : Fragment() {
 
     private fun initializeObservers() {
         viewModel.getAllPosts().observe(viewLifecycleOwner, ::updateAdapter)
-        viewModel.networkResult.observe(viewLifecycleOwner, ::updateLoadingState)
+        viewModel._networkResult.observe(viewLifecycleOwner, ::updateLoadingState)
     }
 
     private fun initializeListeners() {
