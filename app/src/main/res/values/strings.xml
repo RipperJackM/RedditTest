@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">RedditTest</string>
+
     <string name="post_list_fragment_update_btn_title">Update post list</string>
+
     <string name="date_util_hours_ago">%d hours ago</string>
     <string name="post_item_comments_count">%d comments</string>
+
+    <string name="media_detail_close_btn">Close</string>
+    <string name="media_detail_save_btn">Save to gallery</string>
+
 
 </resources>

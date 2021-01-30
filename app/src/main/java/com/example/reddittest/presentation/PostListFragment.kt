@@ -1,10 +1,14 @@
 package com.example.reddittest.presentation
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +17,7 @@ import com.example.reddittest.model.PostModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class PostListFragment : Fragment() {
 
@@ -24,7 +29,7 @@ class PostListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: PostListViewModel
-    private val listAdapter = PostListAdapter()
+    private lateinit var listAdapter: PostListAdapter
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -38,8 +43,8 @@ class PostListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initializeRecycler()
         initializeResource()
+        initializeRecycler()
         initializeObservers()
         initializeListeners()
     }
@@ -51,6 +56,7 @@ class PostListFragment : Fragment() {
 
     private fun initializeResource() {
         viewModel = ViewModelProvider(requireActivity()).get(PostListViewModel::class.java)
+        listAdapter = PostListAdapter(this::onImageClick)
     }
 
     private fun initializeObservers() {
@@ -62,8 +68,11 @@ class PostListFragment : Fragment() {
         binding.updateListBtn.setOnClickListener {
             binding.postListFragmentLoadingView.showView()
             it.isClickable = false
-            GlobalScope.launch(Dispatchers.IO) {
-                viewModel.getPostsFromNetwork()
+            try {
+                GlobalScope.launch(Dispatchers.IO) {
+                    viewModel.getPostsFromNetwork()
+                }
+            } catch (e: Exception) {
             }
         }
     }
@@ -80,6 +89,11 @@ class PostListFragment : Fragment() {
     }
 
     private fun updateAdapter(list: List<PostModel>) = listAdapter.setItems(list)
+
+    private fun onImageClick(url: String?) {
+        binding.mediaDetailFragment.showMediaDetail(requireActivity(), url, binding.updateListBtn)
+        binding.updateListBtn.visibility = View.GONE
+    }
 
     override fun onDestroy() {
         super.onDestroy()

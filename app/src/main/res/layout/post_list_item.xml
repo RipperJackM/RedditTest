@@ -30,15 +30,15 @@
 
         <ImageView
             android:id="@+id/postThumbnailImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:maxHeight="150dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toTopOf="@id/postCreationDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/postBodyText" />
+            app:layout_constraintTop_toBottomOf="@id/postBodyText"
+            tools:layout_width="wrap_content"
+            tools:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/postTitle"

@@ -6,6 +6,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/black_10">
 
+    <Button
+        android:id="@+id/updateListBtn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_list_fragment_update_btn_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/postListRecycler"
         android:layout_width="0dp"
@@ -16,18 +26,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/updateListBtn"/>
 
-    <Button
-        android:id="@+id/updateListBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_list_fragment_update_btn_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
         <com.example.reddittest.presentation.LoadingView
             android:id="@+id/postListFragmentLoadingView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:visibility="gone"/>
+
+    <com.example.reddittest.presentation.MediaDetailView
+        android:id="@+id/mediaDetailFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
